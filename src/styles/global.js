@@ -1,6 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
+  :root {
+    /* COLORS */
+    --color-primary-light: #f4eeff;
+    --color-primary-dark: #424874;
+    --color-secondary: #a6b1e1;
+    --color-text: #41414d;
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -18,11 +26,6 @@ export default createGlobalStyle`
 
   html, body, #root {
     height: 100vh;
-
-    /* COLORS */
-    --color-primary-light: #f4eeff;
-    --color-primary-dark: #424874;
-    --color-text: #41414d;
   }
 
   body {

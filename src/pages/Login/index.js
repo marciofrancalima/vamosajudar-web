@@ -18,10 +18,10 @@ export default function Login() {
           <S.Input placeholder="Sua ID" autoFocus />
           <S.Button type="submit">Entrar</S.Button>
 
-          <S.Link href="/register">
+          <S.CustomLink to="/register">
             <FiLogIn size={16} color="#424874" />
             Não tenho cadastro
-          </S.Link>
+          </S.CustomLink>
         </S.Form>
       </S.Wrapper>
 

@@ -5,38 +5,53 @@ export const Container = styled.section`
   width: 100%;
   max-width: 112rem;
   margin: 0 auto;
+  height: 100vh;
 
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-export const Wrapper = styled.div`
+export const Content = styled.div`
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 2rem;
+  padding: 9.6rem;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0, 0, 10rem rgba(0, 0, 0, 0.1);
 `;
 
-export const Header = styled.header`
-  display: flex;
-  flex-direction: column;
+export const Wrapper = styled.div`
+  width: 100%;
+  max-width: 38rem;
 `;
 
 export const Title = styled.h1`
   font-size: 4rem;
   font-weight: 700;
+  padding-bottom: 2rem;
 `;
 
 export const Subtitle = styled.h2`
   color: var(--color-text);
-  font-size: 2.2rem;
-  font-weight: 400;
-  margin: 6rem 0 4rem 0;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 2rem;
+`;
+
+export const Description = styled.p`
+  font-size: 1.8rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  margin-top: 2rem;
 `;
 
 export const Form = styled.form`
   width: 100%;
-  max-width: 35rem;
-  margin-right: 10rem;
+  max-width: 45rem;
 `;
 
 export const Input = styled.input`
@@ -49,6 +64,8 @@ export const Input = styled.input`
   border-left: 8px solid var(--color-primary-dark);
   border-radius: 0.8rem;
   padding: 0 2.4rem;
+
+  margin-top: 0.8rem;
 
   &::placeholder {
     color: var(--color-primary-dark);
@@ -72,6 +89,14 @@ export const Button = styled.button`
 
   &:hover {
     filter: brightness(90%);
+  }
+`;
+
+export const InputGroup = styled.div`
+  display: flex;
+
+  input + input {
+    margin-left: 0.8rem;
   }
 `;
 
