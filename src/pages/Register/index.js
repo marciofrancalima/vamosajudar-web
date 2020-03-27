@@ -17,11 +17,22 @@ export default function Register() {
   function redirectToLogin() {
     setTimeout(() => {
       history.push('/');
-    }, 4000);
+    }, 10000);
   }
 
   async function handleRegister(e) {
     e.preventDefault();
+
+    if (
+      name.trim() === '' ||
+      email.trim() === '' ||
+      whatsapp.trim() === '' ||
+      city.trim() === '' ||
+      uf.trim() === ''
+    ) {
+      toast.error('Oops... Preencha os campos corretamente!');
+      return;
+    }
 
     const data = { name, email, whatsapp, city, uf };
 

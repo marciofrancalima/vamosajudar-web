@@ -24,6 +24,15 @@ export default function Incident() {
   async function handleSubmit(e) {
     e.preventDefault();
 
+    if (
+      title.trim() === '' ||
+      description.trim() === '' ||
+      value.trim() === ''
+    ) {
+      toast.error('Oops... Preencha os campos corretamente!');
+      return;
+    }
+
     const data = { title, description, value };
 
     try {

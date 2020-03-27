@@ -20,6 +20,11 @@ export default function AppProvider({ children }) {
     e.preventDefault();
 
     try {
+      if (inputId.trim() === '') {
+        toast.error('Oops... Você precisa informar o ID!');
+        return;
+      }
+
       const response = await api.post('/sessions', { id: inputId });
 
       localStorage.setItem('ongId', inputId);
