@@ -19,6 +19,12 @@ export default function Profile() {
     }
   }, [history]);
 
+  function handleLogout() {
+    localStorage.clear();
+
+    history.push('/');
+  }
+
   return (
     <S.Container>
       <S.Header>
@@ -32,7 +38,7 @@ export default function Profile() {
 
         <S.Wrapper>
           <S.AddButton to="/incidents/new">Cadastrar</S.AddButton>
-          <S.LogoutButton type="button">
+          <S.LogoutButton type="button" onClick={handleLogout}>
             <FiPower size={18} color="#e02041" />
           </S.LogoutButton>
         </S.Wrapper>
