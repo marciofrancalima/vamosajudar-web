@@ -31,15 +31,15 @@ export const AddButton = styled(Link)`
   width: 23rem;
 
   display: inline-block;
-  height: 6rem;
+  height: 4.5rem;
   background-color: var(--color-primary-dark);
   border: none;
   border-radius: 0.8rem;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
   text-align: center;
   color: #fff;
-  line-height: 6rem;
+  line-height: 4.5rem;
   transition: filter 0.2s;
 
   &:hover {
@@ -48,8 +48,8 @@ export const AddButton = styled(Link)`
 `;
 
 export const LogoutButton = styled.button`
-  width: 6rem;
-  height: 6rem;
+  width: 4.5rem;
+  height: 4.5rem;
   border-radius: 4px;
   border: 1px solid #dcdce6;
   background: transparent;

@@ -20,7 +20,7 @@ export default function Profile() {
         </S.Wrapper>
 
         <S.Wrapper>
-          <S.AddButton to="/incidents/new">Cadastrar</S.AddButton>
+          <S.AddButton to="/incidents/new">Novo caso</S.AddButton>
           <S.LogoutButton type="button" onClick={handleLogout}>
             <FiPower size={18} color="#e02041" />
           </S.LogoutButton>

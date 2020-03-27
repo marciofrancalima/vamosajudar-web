@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export default createGlobalStyle`
   :root {
     /* COLORS */
-    --color-primary-light: #f4eeff;
+    --color-primary-light: #dcdce6;
     --color-primary-dark: #424874;
     --color-secondary: #a6b1e1;
     --color-text: #41414d;
