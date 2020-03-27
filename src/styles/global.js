@@ -59,5 +59,6 @@ export default createGlobalStyle`
     background-color: var(--color-primary-dark);
     color: #fff;
     font-weight: 700;
+    text-align: center;
   }
 `;
