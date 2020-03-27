@@ -1,4 +1,5 @@
 import React from 'react';
+import { ToastContainer } from 'react-toastify';
 
 import GlobalStyle from './styles/global';
 
@@ -8,6 +9,15 @@ function App() {
   return (
     <>
       <Routes />
+      <ToastContainer
+        position="bottom-center"
+        autoClose={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnVisibilityChange={false}
+        draggable={false}
+      />
       <GlobalStyle />
     </>
   );

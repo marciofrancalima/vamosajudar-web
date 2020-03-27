@@ -1,9 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { FiArrowLeft } from 'react-icons/fi';
+
+import api from '~/services/api';
 
 import * as S from './styles';
 
 export default function Register() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [whatsapp, setWhatsapp] = useState('');
+  const [city, setCity] = useState('');
+  const [uf, setUf] = useState('');
+
+  const history = useHistory();
+
+  function redirectToLogin() {
+    setTimeout(() => {
+      history.push('/');
+    }, 4000);
+  }
+
+  async function handleRegister(e) {
+    e.preventDefault();
+
+    const data = { name, email, whatsapp, city, uf };
+
+    try {
+      const response = await api.post('/ongs', data);
+
+      toast(`Cadastro realizado! Sua ID: ${response.data.id}`, {
+        className: 'toast',
+      });
+
+      redirectToLogin();
+    } catch (error) {
+      toast.error('Oops... Erro ao cadastrar a ONG!');
+    }
+  }
+
   return (
     <S.Container>
       <S.Content>
@@ -20,14 +56,38 @@ export default function Register() {
           </S.CustomLink>
         </S.Wrapper>
 
-        <S.Form>
-          <S.Input placeholder="Nome da ONG" autoFocus />
-          <S.Input type="email" placeholder="E-mail" />
-          <S.Input placeholder="WhatsApp" />
+        <S.Form onSubmit={handleRegister}>
+          <S.Input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Nome da ONG"
+            autoFocus
+          />
+          <S.Input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="E-mail"
+          />
+          <S.Input
+            value={whatsapp}
+            onChange={(e) => setWhatsapp(e.target.value)}
+            placeholder="WhatsApp"
+          />
 
           <S.InputGroup>
-            <S.Input placeholder="Cidade" />
-            <S.Input placeholder="UF" style={{ width: '20%' }} />
+            <S.Input
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              placeholder="Cidade"
+            />
+            <S.Input
+              value={uf}
+              onChange={(e) => setUf(e.target.value)}
+              placeholder="UF"
+              maxLength="2"
+              style={{ width: '20%', textTransform: 'uppercase' }}
+            />
           </S.InputGroup>
 
           <S.Button type="submit">Cadastrar</S.Button>

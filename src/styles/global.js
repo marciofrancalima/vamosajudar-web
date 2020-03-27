@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
   :root {
@@ -51,5 +52,12 @@ export default createGlobalStyle`
 
   button {
     cursor: pointer;
+  }
+
+  /* TOAST */
+  .toast {
+    background-color: var(--color-primary-dark);
+    color: #fff;
+    font-weight: 700;
   }
 `;
