@@ -1,41 +1,31 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useContext } from 'react';
 import { toast } from 'react-toastify';
-import { useHistory } from 'react-router-dom';
 import { FiTrash2 } from 'react-icons/fi';
 
 import api from '~/services/api';
 
-import Header from '~/components/Header';
+import { AppContext } from '~/store';
 
 import * as S from './styles';
 
 export default function Profile() {
-  const [ongId, setOngId] = useState('');
   const [incidents, setIncidents] = useState([]);
 
-  const history = useHistory();
+  const { ongId } = useContext(AppContext);
 
   const listSize = useMemo(() => incidents.length, [incidents.length]);
 
   useEffect(() => {
-    const id = localStorage.getItem('ongId');
-
-    if (id) {
-      setOngId(id);
-    } else {
-      history.push('/');
-    }
-  }, [history]);
-
-  useEffect(() => {
     async function loadData() {
-      const response = await api.get('/profile', {
-        headers: {
-          Authorization: ongId,
-        },
-      });
+      if (ongId) {
+        const response = await api.get('/profile', {
+          headers: {
+            Authorization: ongId,
+          },
+        });
 
-      setIncidents(response.data);
+        setIncidents(response.data);
+      }
     }
 
     loadData();
@@ -61,8 +51,6 @@ export default function Profile() {
 
   return (
     <S.Container>
-      <Header />
-
       <S.Title>Casos cadastrados</S.Title>
 
       {listSize !== 0 ? (

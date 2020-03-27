@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { toast } from 'react-toastify';
-import { useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
+
+import { AppContext } from '~/store';
 
 import api from '~/services/api';
 
@@ -11,25 +12,14 @@ export default function Incident() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [value, setValue] = useState('');
-  const [ongId, setOngId] = useState('');
 
-  const history = useHistory();
+  const { ongId } = useContext(AppContext);
 
   function handleReset() {
     setTitle('');
     setDescription('');
     setValue('');
   }
-
-  useEffect(() => {
-    const id = localStorage.getItem('ongId');
-
-    if (id) {
-      setOngId(id);
-    } else {
-      history.push('/');
-    }
-  }, [history]);
 
   async function handleSubmit(e) {
     e.preventDefault();

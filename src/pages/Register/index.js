@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FiArrowLeft } from 'react-icons/fi';
 
 import api from '~/services/api';
+import history from '~/services/history';
 
 import * as S from './styles';
 
@@ -13,8 +13,6 @@ export default function Register() {
   const [whatsapp, setWhatsapp] = useState('');
   const [city, setCity] = useState('');
   const [uf, setUf] = useState('');
-
-  const history = useHistory();
 
   function redirectToLogin() {
     setTimeout(() => {

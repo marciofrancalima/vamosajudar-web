@@ -1,33 +1,14 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import React, { useContext } from 'react';
 import { FiLogIn } from 'react-icons/fi';
 
-import api from '~/services/api';
+import { AppContext } from '~/store';
 
 import vamosAjudarImg from '~/assets/vamos-ajudar.png';
 
 import * as S from './styles';
 
 export default function Login() {
-  const [id, setId] = useState('');
-
-  const history = useHistory();
-
-  async function handleLogin(e) {
-    e.preventDefault();
-
-    try {
-      const response = await api.post('/sessions', { id });
-
-      localStorage.setItem('ongId', id);
-      localStorage.setItem('ongName', response.data.name);
-
-      history.push('/profile');
-    } catch (error) {
-      toast.error('Oops... Veja se o ID está correto!');
-    }
-  }
+  const { inputId, setInputId, handleLogin } = useContext(AppContext);
 
   return (
     <S.Container>
@@ -39,8 +20,8 @@ export default function Login() {
 
         <S.Form onSubmit={handleLogin}>
           <S.Input
-            value={id}
-            onChange={(e) => setId(e.target.value)}
+            value={inputId}
+            onChange={(e) => setInputId(e.target.value)}
             placeholder="Sua ID"
             autoFocus
           />

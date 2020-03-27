@@ -1,29 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useContext } from 'react';
 import { FiPower } from 'react-icons/fi';
+
+import { AppContext } from '~/store';
 
 import * as S from './styles';
 
 export default function Profile() {
-  const [ongName, setOngName] = useState('');
-
-  const history = useHistory();
-
-  useEffect(() => {
-    const name = localStorage.getItem('ongName');
-
-    if (name) {
-      setOngName(name);
-    } else {
-      history.push('/');
-    }
-  }, [history]);
-
-  function handleLogout() {
-    localStorage.clear();
-
-    history.push('/');
-  }
+  const { handleLogout, ongName } = useContext(AppContext);
 
   return (
     <S.Container>
