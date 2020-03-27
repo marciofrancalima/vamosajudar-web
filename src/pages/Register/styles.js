@@ -69,6 +69,7 @@ export const Input = styled.input`
 
   &::placeholder {
     color: var(--color-primary-dark);
+    opacity: 0.8;
   }
 `;
 
